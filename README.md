@@ -23,66 +23,70 @@ Este proyecto propone una solución híbrida (Web de Gestión + Automatización 
 
 ## Conclusión
 Más que un simple recordatorio, este proyecto es una **herramienta de asistencia sanitaria** que utiliza la tecnología para humanizar el cuidado, devolviendo autonomía al paciente y brindando soporte logístico a su red de apoyo.
-Estructura de Carpetas
-A continuación, se muestra cómo están organizados los archivos en tu proyecto:
 
-Proyecto H5
-data/
-docs/
-src/
-.venv/
-config.json
-PyWhatKit_DB.txt
-fundamentacion_proyecto.md
-web/
-main.py
-automatizador.py
-gestor.py
-notificador.py
-Tests scripts...
+
+Arquitectura y Estructura del Proyecto H5 (Versión Texto)
+A continuación se detalla la estructura de carpetas y el flujo de información del sistema en formato de texto.
+
+1. Estructura de Carpetas
+La organización de los archivos en tu disco es la siguiente:
+
+Proyecto H5/
+|-- data/                       (Datos persistentes)
+|   |-- config.json             (Configuración: tokens, teléfonos)
+|   |-- PyWhatKit_DB.txt        (Base de datos interna de librería)
+|
+|-- docs/                       (Documentación)
+|   |-- fundamentacion_proyecto.md (Explicación del proyecto)
+|
+|-- src/                        (Código Fuente Principal)
+|   |-- web/                    (Componente: Interfaz Web)
+|   |   |-- templates/          (Archivos HTML: index.html, etc.)
+|   |   |-- static/             (CSS, JS, imágenes públicas)
+|   |   |-- app.py              (Servidor Web Flask: Rutas web)
+|   |
+|   |-- main.py                 (Punto de entrada principal)
+|   |-- automatizador.py        (Cerebro: Chequea horarios y lanza tareas)
+|   |-- gestor.py               (Lógica: Maneja datos, lee/escribe archivos)
+|   |-- notificador.py          (Salida: Envía Telegram, WhatsApp, Audio)
+|   |-- test_telegram.py        (Scripts de prueba...)
+|   |-- test_whatsapp.py
+|
+|-- .venv/                      (Entorno Virtual de Python)
+|-- requirements.txt            (Lista de librerías necesarias)
+|-- run.bat                     (Script para iniciar todo con un clic)
+2. Flujo del Sistema (Paso a Paso)
+El sistema funciona en un bucle continuo conectando estos componentes:
+
+Fase A: Configuración (Usuario -> Sistema)
+Entrada: El usuario abre el navegador y va a la web local.
+Proceso: 
+src/web/app.py
+ recibe los datos (ej: "Tomar Ibuprofeno a las 14:00").
+Almacenamiento: 
 app.py
-templates/
-static/
-Flujo de Funcionamiento
-Este diagrama explica cómo se conectan las partes lógica (Python) con la interfaz (Web) y el usuario.
-
-Interfaz Web (Gestión): El usuario (familiar/cuidador) usa la web para cargar las recetas.
-Base de Datos/Archivos: La Web guarda estos datos (probablemente en JSON o BD gestionada por 
-gestor.py
-).
-El "Cerebro" (Automatizador): 
-automatizador.py
- se ejecuta en segundo plano (o lanzado por 
-main.py
-). Lee periódicamente los datos para saber cuándo toca una medicación.
-Notificación: Cuando es la hora, usa 
+ usa funciones de 
+src/gestor.py
+ para guardar esta información en los archivos dentro de la carpeta data/.
+Fase B: Monitoreo (Sistema en Segundo Plano)
+Vigilancia: El script 
+src/automatizador.py
+ se ejecuta constantemente (bucle infinito).
+Consulta: Cada minuto, pregunta a 
+src/gestor.py
+: "¿Hay alguna medicina programada para esta hora exacta?".
+Decisión: Si la respuesta es SÍ, pasa a la fase de notificación.
+Fase C: Acción (Sistema -> Usuario)
+Ejecución: 
+src/automatizador.py
+ llama a 
+src/notificador.py
+.
+Salida: 
 notificador.py
- para enviar alertas (Telegram/WhatsApp/Audio).
-Automatización (Paciente)
-Lógica del Sistema
-Interfaz de Gestión (Familiar)
-1. Carga Receta
-2. Guarda Datos
-3. Escribe
-4. Consulta Horarios
-5. Lee
-6. Detecta Hora
-7. Alerta de Voz
-8. Mensaje
-Navegador Web
-src/web/app.py
-src/gestor.py
-Datos/JSON
-src/automatizador.py
-src/notificador.py
-Altavoces/Escritorio
-Telegram API
-Descripción de Componentes Clave
-src/web/app.py
-: El servidor web (Flask). Aquí es donde defines las rutas (/agregar, /lista, etc.) y renderizas las plantillas HTML para que el usuario interactúe.
-src/gestor.py
-: El intermediario. Probablemente contiene funciones como cargar_recetas(), guardar_receta(), etc. Sirve para que tanto la Web como el Automatizador hablen el mismo idioma y no toquen los archivos "crudos" directamente.
-src/automatizador.py
-: El script que "nunca duerme" (o que se ejecuta regularmente). Revisa constantemente si la hora actual coincide con alguna hora de medicación guardada.
-src/notificador.py
-: El especialista en mensajería. Sabe cómo hablar con la API de Telegram o cómo usar librerías para enviar mensajes de WhatsApp o reproducir sonidos.
+ ejecuta las acciones configuradas:
+Reproduce un audio en la PC ("Es hora de su medicación").
+Envía un mensaje a Telegram usando el token de 
+config.json
+.
+Envía un mensaje a WhatsApp (si está configurado).
