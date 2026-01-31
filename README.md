@@ -25,13 +25,9 @@ Este proyecto propone una solución híbrida (Web de Gestión + Automatización 
 Más que un simple recordatorio, este proyecto es una **herramienta de asistencia sanitaria** que utiliza la tecnología para humanizar el cuidado, devolviendo autonomía al paciente y brindando soporte logístico a su red de apoyo.
 
 
-"""Arquitectura y Estructura del Proyecto H5 (Versión Texto)
-A continuación se detalla la estructura de carpetas y el flujo de información del sistema en formato de texto.
 
-1. Estructura de Carpetas
-La organización de los archivos en tu disco es la siguiente:
 
-Proyecto H5/
+##Proyecto 
 |-- data/                       (Datos persistentes)
 |   |-- config.json             (Configuración: tokens, teléfonos)
 |   |-- PyWhatKit_DB.txt        (Base de datos interna de librería)
