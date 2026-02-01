@@ -15,7 +15,7 @@ Este proyecto propone una solución híbrida (Web de Gestión + Automatización 
 ### 2. Para los Familiares y Cuidadores
 *   **Gestión Simplificada (Interfaz Web):** La interfaz Web permite que hijos o enfermeros carguen y organicen el esquema de medicación de forma rápida y centralizada, sin tener que interactuar con archivos de configuración complejos.
 *   **Tranquilidad Mental:** Reduce la carga mental de estar pendiente del reloj ("carga del cuidador"), sabiendo que un sistema robusto avisará al paciente.
-*   **Flexibilidad:** Permite modificar dosis o horarios fácilmente tras una visita médica, asegurando que el paciente siempre tenga la pauta actualizada.
+*   **Flexibilidad:** Permite modificar dosis u horarios fácilmente tras una visita médica, asegurando que el paciente siempre tenga la pauta actualizada.
 
 ### 3. Para los Médicos y Profesionales de la Salud
 *   **Eficacia Terapéutica:** La mejor medicina no funciona si no se toma. Este sistema asegura que el tratamiento prescrito se siga tal cual fue diseñado, mejorando los outcomes clínicos.
