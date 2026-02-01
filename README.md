@@ -30,47 +30,64 @@ Más que un simple recordatorio, este proyecto es una **herramienta de asistenci
 
 2. Flujo del Sistema (Paso a Paso)
 El sistema funciona en un bucle continuo conectando estos componentes:
+
 Fase A: Configuración (Usuario $\rightarrow$ Sistema)
+
 Entrada: El usuario abre el navegador y accede a la web local.
 Proceso: src/web/app.py recibe los datos de la medicación.
 Almacenamiento: app.py utiliza las funciones de src/gestor.py para persistir la información en la carpeta data/.
+
 Fase B: Monitoreo (Sistema en Segundo Plano)
+
 Vigilancia: El script src/automatizador.py se ejecuta constantemente en un bucle infinito.
 Consulta: Cada minuto, pregunta a src/gestor.py: "¿Hay alguna medicina programada para esta hora exacta?".
 Decisión: Si existe una coincidencia, se dispara la fase de acción.
+
 Fase C: Acción (Sistema $\rightarrow$ Usuario)
+
 Ejecución: src/automatizador.py llama al módulo src/notificador.py.
 Salida: Se ejecutan las acciones configuradas, como el envío de mensajes a Telegram utilizando el token de config.json.
 Plan de Distribución de Trabajo por Arquitectura
+
 1. Rol: Desarrollador Backend (El "Motor")
+   
 Responsables: Rodrigo Segovia, Juan Manuel Ayala, Daniel Valdez
+
 Enfoque: Lógica de negocio, manejo de datos y automatización.
 Archivos Clave:
 src/gestor.py: Funciones CRUD para recetas.
 src/automatizador.py: Bucle de monitoreo eficiente (bajo consumo de CPU).
 src/notificador.py: Conexión con la API de Telegram.
 data/config.json: Estructura de configuración global.
-2. Rol: Desarrollador Frontend / Web (La "Cara")
+
+3. Rol: Desarrollador Frontend / Web (La "Cara")
+
 Responsables: Victor E. Gonzalez, Anita Escurra
 Enfoque: Interfaz gráfica (UI) y experiencia de usuario (UX) para cuidadores.
 Archivos Clave:
 src/web/templates/: HTML accesible (botones grandes y claros).
 src/web/static/: Estilos CSS e interactividad JS.
 src/web/app.py: Definición de rutas Flask y coordinación con el Backend.
-3. Rol: QA & Testing (El "Control de Calidad")
+
+4. Rol: QA & Testing (El "Control de Calidad")
+   
 Responsables: Juan Gonzalez, Kevin Bello, Anita Escurra
 Enfoque: Estabilidad e integridad de las integraciones.
 Archivos Clave:
 src/test_telegram.py: Pruebas aisladas de la API.
 Pruebas de Integración: Validación del flujo completo (Web $\rightarrow$ Data $\rightarrow$ Alerta).
-4. Rol: DevOps / Integrador (El "Armador")
+
+6. Rol: DevOps / Integrador (El "Armador")
+   
 Responsables: Rodrigo Segovia, Juan Manuel Ayala, Daniel Valdez
 Enfoque: Despliegue, documentación y empaquetado.
 Archivos Clave:
 requirements.txt: Gestión de dependencias.
 run.bat: Script de inicio dual (Web + Automatizador).
 docs/: Documentación técnica y manuales.
+
 Resumen de Flujo de Trabajo Sugerido
+
 Backend define la estructura de datos en gestor.py.
 Frontend diseña las pantallas basándose en esa estructura.
 Backend implementa la lógica de alertas en paralelo.
