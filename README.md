@@ -24,6 +24,40 @@ Este proyecto propone una solución híbrida (Web de Gestión + Automatización 
 ## Conclusión
 Más que un simple recordatorio, este proyecto es una **herramienta de asistencia sanitaria** que utiliza la tecnología para humanizar el cuidado, devolviendo autonomía al paciente y brindando soporte logístico a su red de apoyo.
 
+1. Diseño de Carpetas
 
 <img width="838" height="709" alt="Captura de pantalla 2026-01-31 223611" src="https://github.com/user-attachments/assets/503ec53a-c5d1-40ed-a6c6-1c239702421b" />
 
+2. Flujo del Sistema (Paso a Paso)
+El sistema funciona en un bucle continuo conectando estos componentes:
+
+Fase A: Configuración (Usuario -> Sistema)
+Entrada: El usuario abre el navegador y va a la web local.
+Proceso: 
+src/web/app.py
+ recibe los datos (ej: "Tomar Ibuprofeno a las 14:00").
+Almacenamiento: 
+app.py
+ usa funciones de 
+src/gestor.py
+ para guardar esta información en los archivos dentro de la carpeta data/.
+Fase B: Monitoreo (Sistema en Segundo Plano)
+Vigilancia: El script 
+src/automatizador.py
+ se ejecuta constantemente (bucle infinito).
+Consulta: Cada minuto, pregunta a 
+src/gestor.py
+: "¿Hay alguna medicina programada para esta hora exacta?".
+Decisión: Si la respuesta es SÍ, pasa a la fase de notificación.
+Fase C: Acción (Sistema -> Usuario)
+Ejecución: 
+src/automatizador.py
+ llama a 
+src/notificador.py
+.
+Salida: 
+notificador.py
+ ejecuta las acciones configuradas:
+Envía un mensaje a Telegram usando el token de 
+config.json
+.
