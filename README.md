@@ -29,6 +29,7 @@ Más que un simple recordatorio, este proyecto es una **herramienta de asistenci
 <img width="838" height="709" alt="Captura de pantalla 2026-01-31 223611" src="https://github.com/user-attachments/assets/503ec53a-c5d1-40ed-a6c6-1c239702421b" />
 
 2. Flujo del Sistema (Paso a Paso)
+   
 El sistema funciona en un bucle continuo conectando estos componentes:
 
 Fase A: Configuración (Usuario -> Sistema)
