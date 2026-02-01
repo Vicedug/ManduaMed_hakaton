@@ -25,32 +25,5 @@ Este proyecto propone una solución híbrida (Web de Gestión + Automatización 
 Más que un simple recordatorio, este proyecto es una **herramienta de asistencia sanitaria** que utiliza la tecnología para humanizar el cuidado, devolviendo autonomía al paciente y brindando soporte logístico a su red de apoyo.
 
 
-
-
-##Proyecto 
-|-- data/                       (Datos persistentes)
-|   |-- config.json             (Configuración: tokens, teléfonos)
-|   |-- PyWhatKit_DB.txt        (Base de datos interna de librería)
-|
-|-- docs/                       (Documentación)
-|   |-- fundamentacion_proyecto.md (Explicación del proyecto)
-|
-|-- src/                        (Código Fuente Principal)
-|   |-- web/                    (Componente: Interfaz Web)
-|   |   |-- templates/          (Archivos HTML: index.html, etc.)
-|   |   |-- static/             (CSS, JS, imágenes públicas)
-|   |   |-- app.py              (Servidor Web Flask: Rutas web)
-|   |
-|   |-- main.py                 (Punto de entrada principal)
-|   |-- automatizador.py        (Cerebro: Chequea horarios y lanza tareas)
-|   |-- gestor.py               (Lógica: Maneja datos, lee/escribe archivos)
-|   |-- notificador.py          (Salida: Envía Telegram)
-|   |-- test_telegram.py        (Scripts de prueba...)
-|   |-- test_whatsapp.py
-|
-|-- .venv/                      (Entorno Virtual de Python)
-|-- requirements.txt            (Lista de librerías necesarias)
-|-- run.bat                     (Script para iniciar todo con un clic)
-2. Flujo del Sistema (Paso a Paso)
-El sistema funciona en un bucle continuo conectando estos componentes:
+<img width="838" height="709" alt="Captura de pantalla 2026-01-31 223611" src="https://github.com/user-attachments/assets/503ec53a-c5d1-40ed-a6c6-1c239702421b" />
 
