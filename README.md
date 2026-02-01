@@ -97,3 +97,67 @@ Frontend diseña las pantallas basándose en esa estructura.
 Backend implementa la lógica de alertas en paralelo.
 QA valida el sistema de notificaciones de forma independiente.
 Integrador une todas las piezas y genera el script de ejecución final.
+
+
+ Guía Rápida de Git para ManduadorMed
+1. Configuración Inicial (Solo la primera vez)
+Antes de empezar, identifíquense para que sepamos quién hizo cada parte del código.
+
+Bash
+
+
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu@email.com"
+
+
+2. Obtener el Proyecto
+Para traer el repositorio a su computadora local por primera vez.
+
+Bash
+
+
+git clone https://github.com/usuario/ManduadorMed.git
+cd ManduadorMed
+
+
+3. Flujo Diario de Trabajo (El ciclo de oro)
+Este es el orden que deben seguir cada vez que trabajen en una tarea:
+Paso 1: Sincronizar. Antes de escribir código, traigan lo que otros subieron.
+Bash
+git pull origin main
+
+
+Paso 2: Verificar. Vean qué archivos han modificado.
+Bash
+git status
+
+
+Paso 3: Preparar. Agreguen sus cambios al "área de preparación".
+Bash
+git add . # Agrega todos los archivos nuevos o modificados
+
+
+Paso 4: Comentar. Pónganle una etiqueta a sus cambios.
+Bash
+git commit -m "Backend: Implementada lógica de envío en notificador.py"
+
+
+Paso 5: Subir. Envíen sus cambios a la nube para que el resto los vea.
+Bash
+git push origin main
+
+
+⚠️ Reglas de Oro para el Equipo
+Hacer Commits pequeños: No esperen a terminar todo el proyecto para hacer un commit. Hagan uno por cada función pequeña que funcione.
+Mensajes claros: Eviten mensajes como "cambios" o "asdfg". Usen mensajes descriptivos como: "Frontend: Ajustado tamaño de botones para adultos mayores".
+Hacer Pull frecuentemente: Para evitar "conflictos de fusión" (cuando dos personas tocan la misma línea de código), hagan git pull varias veces al día.
+No subir el archivo .env: Si tienen el archivo con el Token de Telegram, asegúrense de que esté listado en el archivo .gitignore.
+💡 Comandos de Emergencia
+¿Hice algo mal y quiero ver qué cambió?
+Bash
+git diff
+
+
+¿Quiero ver el historial de quién hizo qué?
+Bash
+git log --oneline
