@@ -10,11 +10,6 @@ modularizacón, estructura e implementación de bases de datos esta abierta a ca
 # .\venv\Scripts\activate
 
 
-import sys
-from pathlib import Path
-
-sys.path.append(str(Path(__file__).resolve().parent.parent))
-
 from data.crear_db import get_connection
 
 def create_client(name, phone):
