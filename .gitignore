@@ -1,3 +1,6 @@
 venv
 healthcare.db
 __pycache__
+.env
+session.session
+bot_session.session
