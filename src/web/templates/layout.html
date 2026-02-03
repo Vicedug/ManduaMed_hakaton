@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recordatorio de Recetas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-blue: #2A5C6B;
+            /* Color oscuro del texto Manduador */
+            --brand-green: #67B096;
+            /* Color claro del texto Med */
+            --brand-orange: #F2AC36;
+            /* Color del triangulo */
+            --bg-light: #F4F8F9;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .card {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(42, 92, 107, 0.05);
+        }
+
+        .header {
+            background: white;
+            color: var(--brand-blue);
+            padding: 10px 0;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .logo-img {
+            height: 300px;
+            margin-bottom: 0;
+            object-fit: contain;
+        }
+
+        h1 {
+            font-weight: 700;
+            color: var(--brand-blue);
+            font-size: 2rem;
+            margin: 0;
+            display: block;
+        }
+
+        .brand-med {
+            color: var(--brand-green);
+        }
+
+        .btn-brand {
+            background-color: var(--brand-green);
+            color: white;
+            border: none;
+            font-weight: 600;
+        }
+
+        .btn-brand:hover {
+            background-color: #55967E;
+            color: white;
+        }
+
+        .card-header-brand {
+            background-color: var(--brand-blue);
+            color: white;
+            border-radius: 20px 20px 0 0 !important;
+            padding: 15px 25px;
+        }
+
+        .badge-time {
+            background-color: var(--brand-blue) !important;
+            color: white !important;
+            font-weight: 500;
+        }
+
+        .z-index-front {
+            position: relative;
+            z-index: 1050;
+        }
+
+        .container {
+            max-width: 900px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header text-center">
+        <div class="container d-flex flex-column align-items-center justify-content-center">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="ManduadorMed Logo" class="logo-img">
+        </div>
+    </div>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

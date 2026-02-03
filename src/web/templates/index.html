@@ -1,0 +1,150 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card bg-white border-0 shadow-sm p-3">
+            <h5 class="mb-3 text-secondary border-bottom pb-2">⚙️ Configuración de Alertas</h5>
+            <form action="{{ url_for('configurar') }}" method="POST">
+                <div class="row g-3">
+                    <div class="col-12">
+                        <div class="alert alert-info py-2 small mb-3">
+                            <i class="fs-6">ℹ️</i> Configura tu <b>Telegram Bot</b> para recibir alertas en el celular
+                            sin abrir el navegador.
+                        </div>
+
+                        <label class="form-label small fw-bold text-info">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
+                                height="20"> Telegram Bot
+                        </label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text small">Token</span>
+                            <input type="text" name="telegram_token" class="form-control"
+                                value="{{ config.telegram_token or '' }}"
+                                placeholder="Pegar Token del Bot (ej: 123456:ABC...)">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text small">Chat ID</span>
+                            <input type="text" name="telegram_chat_id" class="form-control"
+                                value="{{ config.telegram_chat_id or '' }}" placeholder="Pegar Chat ID (ej: 987654321)">
+                        </div>
+                    </div>
+
+                    <div class="col-12 text-end">
+                        <button type="submit" class="btn btn-outline-primary px-4">Guardar Configuración</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header card-header-brand">
+                <h5 class="mb-0">➕ Nueva Receta</h5>
+            </div>
+            <div class="card-body">
+                <form action="{{ url_for('agregar') }}" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label text-muted fw-bold small">MEDICAMENTO</label>
+                        <input type="text" name="nombre" class="form-control" required placeholder="Ej: Paracetamol">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-muted fw-bold small">DOSIS</label>
+                        <input type="text" name="dosis" class="form-control" placeholder="Ej: 500mg">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-muted fw-bold small">INICIAR A LAS (Hora 1ª Dosis)</label>
+                        <input type="time" name="hora_inicio" class="form-control" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <label class="form-label text-muted fw-bold small">CADA (Segundos)</label>
+                            <input type="number" name="frecuencia" class="form-control" placeholder="Ej: 8" required
+                                min="1">
+                        </div>
+                        <div class="col-6 mb-3">
+                            <label class="form-label text-muted fw-bold small">DURANTE (Minutos)</label>
+                            <input type="number" name="dias" class="form-control" placeholder="Ej: 5" required min="1">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-muted fw-bold small">NOTAS</label>
+                        <textarea name="notas" class="form-control" rows="2"
+                            placeholder="Opcional: Con comida..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-brand w-100 py-2">Guardar Receta</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white border-bottom-0 pt-4 px-4">
+                <h5 class="mb-0" style="color: #2c3e50; font-weight: 700;">📋 Tu Calendario de Medicación</h5>
+            </div>
+            <div class="card-body p-0">
+                {% if grupos %}
+                <div class="accordion accordion-flush" id="accordionRecetas">
+                    {% for clave, grupo in grupos.items() %}
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading{{ loop.index }}">
+                            <div class="accordion-button collapsed py-3" role="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse{{ loop.index }}">
+                                <div class="d-flex align-items-center w-100 justify-content-between me-3">
+                                    <div>
+                                        <span class="fw-bold text-dark fs-5">{{ grupo.nombre }}</span>
+                                        <span class="badge bg-light text-secondary border ms-2">{{ grupo.dosis }}</span>
+                                    </div>
+                                    <div class="text-end text-muted small">
+                                        <span class="me-3 d-none d-sm-inline">{{ grupo.dosis_list|length }} tomas
+                                            pendientes</span>
+
+                                        <a href="{{ url_for('eliminar_grupo', nombre=grupo.nombre, dosis=grupo.dosis) }}"
+                                            class="btn btn-sm btn-outline-danger"
+                                            style="position: relative; z-index: 1050;"
+                                            onclick="event.stopPropagation(); return confirm('¿Estás seguro de eliminar TODAS las dosis de {{ grupo.nombre }}?');">
+                                            🗑️ Eliminar Receta
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </h2>
+                        <div id="collapse{{ loop.index }}" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionRecetas">
+                            <div class="accordion-body bg-light p-0">
+                                <table class="table table-hover mb-0">
+                                    <thead class="text-secondary small bg-white">
+                                        <tr>
+                                            <th class="ps-4">FECHA</th>
+                                            <th>HORA</th>
+                                            <th>NOTAS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for receta in grupo.dosis_list %}
+                                        <tr>
+                                            <td class="ps-4 small text-muted">{{ receta.fecha }}</td>
+                                            <td><span class="badge bg-primary px-3 py-1 rounded-pill">{{ receta.hora
+                                                    }}</span></td>
+                                            <td class="small">{{ receta.notas }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="text-center py-5 text-muted">
+                    <p class="mb-0">No hay tratamientos activos.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
