@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "nombre": "Ibuprofeno",
+        "hora": "14:00",
+        "dosis": "1 tableta",
+        "estado": "pendiente"
+    },
+    {
+        "id": 2,
+        "nombre": "Ibuprofeno",
+        "hora": "14:00",
+        "dosis": "1 tableta",
+        "estado": "pendiente"
+    }
+]
