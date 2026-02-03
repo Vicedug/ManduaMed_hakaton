@@ -1,1 +1,285 @@
+<<<<<<< HEAD
 []
+=======
+[
+    {
+        "id": 41,
+        "nombre": "Amoxilina",
+        "dosis": "500 mg",
+        "hora": "08:30:00",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 08:30:00",
+        "notas": "Acompañar con agua."
+    },
+    {
+        "id": 42,
+        "nombre": "Amoxilina",
+        "dosis": "500 mg",
+        "hora": "08:30:40",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 08:30:40",
+        "notas": "Acompañar con agua."
+    },
+    {
+        "id": 43,
+        "nombre": "Amoxilina",
+        "dosis": "500 mg",
+        "hora": "08:31:20",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 08:31:20",
+        "notas": "Acompañar con agua."
+    },
+    {
+        "id": 44,
+        "nombre": "Amoxilina",
+        "dosis": "500 mg",
+        "hora": "08:32:00",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 08:32:00",
+        "notas": "Acompañar con agua."
+    },
+    {
+        "id": 45,
+        "nombre": "Amoxilina",
+        "dosis": "500 mg",
+        "hora": "08:32:40",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 08:32:40",
+        "notas": "Acompañar con agua."
+    },
+    {
+        "id": 46,
+        "nombre": "Amoxilina",
+        "dosis": "500 mg",
+        "hora": "08:33:20",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 08:33:20",
+        "notas": "Acompañar con agua."
+    },
+    {
+        "id": 47,
+        "nombre": "Amoxilina",
+        "dosis": "500 mg",
+        "hora": "08:34:00",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 08:34:00",
+        "notas": "Acompañar con agua."
+    },
+    {
+        "id": 48,
+        "nombre": "Amoxilina",
+        "dosis": "500 mg",
+        "hora": "08:34:40",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 08:34:40",
+        "notas": "Acompañar con agua."
+    },
+    {
+        "id": 49,
+        "nombre": "Amoxilina",
+        "dosis": "500 mg",
+        "hora": "08:35:20",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 08:35:20",
+        "notas": "Acompañar con agua."
+    },
+    {
+        "id": 50,
+        "nombre": "Amoxilina",
+        "dosis": "500 mg",
+        "hora": "08:36:00",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 08:36:00",
+        "notas": "Acompañar con agua."
+    },
+    {
+        "id": 51,
+        "nombre": "Amoxilina",
+        "dosis": "500 mg",
+        "hora": "08:36:40",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 08:36:40",
+        "notas": "Acompañar con agua."
+    },
+    {
+        "id": 52,
+        "nombre": "Amoxilina",
+        "dosis": "500 mg",
+        "hora": "08:37:20",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 08:37:20",
+        "notas": "Acompañar con agua."
+    },
+    {
+        "id": 53,
+        "nombre": "Amoxilina",
+        "dosis": "500 mg",
+        "hora": "08:38:00",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 08:38:00",
+        "notas": "Acompañar con agua."
+    },
+    {
+        "id": 54,
+        "nombre": "Amoxilina",
+        "dosis": "500 mg",
+        "hora": "08:38:40",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 08:38:40",
+        "notas": "Acompañar con agua."
+    },
+    {
+        "id": 55,
+        "nombre": "Amoxilina",
+        "dosis": "500 mg",
+        "hora": "08:39:20",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 08:39:20",
+        "notas": "Acompañar con agua."
+    },
+    {
+        "id": 56,
+        "nombre": "Geniolito",
+        "dosis": "1 pastilla",
+        "hora": "10:23:00",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 10:23:00",
+        "notas": "con agua"
+    },
+    {
+        "id": 57,
+        "nombre": "Geniolito",
+        "dosis": "1 pastilla",
+        "hora": "10:23:30",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 10:23:30",
+        "notas": "con agua"
+    },
+    {
+        "id": 58,
+        "nombre": "Geniolito",
+        "dosis": "1 pastilla",
+        "hora": "10:24:00",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 10:24:00",
+        "notas": "con agua"
+    },
+    {
+        "id": 59,
+        "nombre": "Geniolito",
+        "dosis": "1 pastilla",
+        "hora": "10:24:30",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 10:24:30",
+        "notas": "con agua"
+    },
+    {
+        "id": 60,
+        "nombre": "Paracetamol",
+        "dosis": "40 gotas",
+        "hora": "10:48:00",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 10:48:00",
+        "notas": "Con agua"
+    },
+    {
+        "id": 61,
+        "nombre": "Paracetamol",
+        "dosis": "40 gotas",
+        "hora": "10:48:30",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 10:48:30",
+        "notas": "Con agua"
+    },
+    {
+        "id": 62,
+        "nombre": "Paracetamol",
+        "dosis": "40 gotas",
+        "hora": "10:49:00",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 10:49:00",
+        "notas": "Con agua"
+    },
+    {
+        "id": 63,
+        "nombre": "Paracetamol",
+        "dosis": "40 gotas",
+        "hora": "10:49:30",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 10:49:30",
+        "notas": "Con agua"
+    },
+    {
+        "id": 64,
+        "nombre": "Amoxi",
+        "dosis": "1 pastilla",
+        "hora": "11:36:00",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 11:36:00",
+        "notas": "con agua"
+    },
+    {
+        "id": 65,
+        "nombre": "Amoxi",
+        "dosis": "1 pastilla",
+        "hora": "11:36:30",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 11:36:30",
+        "notas": "con agua"
+    },
+    {
+        "id": 66,
+        "nombre": "Amoxi",
+        "dosis": "1 pastilla",
+        "hora": "11:37:00",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 11:37:00",
+        "notas": "con agua"
+    },
+    {
+        "id": 67,
+        "nombre": "Amoxi",
+        "dosis": "1 pastilla",
+        "hora": "11:37:30",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 11:37:30",
+        "notas": "con agua"
+    },
+    {
+        "id": 68,
+        "nombre": "geniolito",
+        "dosis": "1 pastilla",
+        "hora": "16:20:00",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 16:20:00",
+        "notas": ""
+    },
+    {
+        "id": 69,
+        "nombre": "geniolito",
+        "dosis": "1 pastilla",
+        "hora": "16:20:30",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 16:20:30",
+        "notas": ""
+    },
+    {
+        "id": 70,
+        "nombre": "geniolito",
+        "dosis": "1 pastilla",
+        "hora": "16:21:00",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 16:21:00",
+        "notas": ""
+    },
+    {
+        "id": 71,
+        "nombre": "geniolito",
+        "dosis": "1 pastilla",
+        "hora": "16:21:30",
+        "fecha": "03-02-2026",
+        "timestamp": "2026-02-03 16:21:30",
+        "notas": ""
+    }
+]
+>>>>>>> dev-backend
